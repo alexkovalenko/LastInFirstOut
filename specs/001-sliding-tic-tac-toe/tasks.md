@@ -6,11 +6,11 @@
 
 **Purpose**: Initialize the frontend project and establish the basic React + TypeScript + Vite structure.
 
-- [ ] T001 Create Vite React TypeScript scaffold with `package.json`, `tsconfig.json`, `vite.config.ts`, and `index.html`
-- [ ] T002 Create `src/main.tsx`, `src/App.tsx`, and `src/styles.css`
-- [ ] T003 Create initial source directories: `src/components/`, `src/state/`, `src/logic/`
-- [ ] T004 Add Vite, React, ReactDOM, Zustand, Vitest, and React Testing Library dependencies in `package.json`
-- [ ] T005 Configure TypeScript strict mode in `tsconfig.json`
+- [x] T001 Create Vite React TypeScript scaffold with `package.json`, `tsconfig.json`, `vite.config.ts`, and `index.html`
+- [x] T002 Create `src/main.tsx`, `src/App.tsx`, and `src/styles.css`
+- [x] T003 Create initial source directories: `src/components/`, `src/state/`, `src/logic/`
+- [x] T004 Add Vite, React, ReactDOM, Zustand, Vitest, and React Testing Library dependencies in `package.json`
+- [x] T005 Configure TypeScript strict mode in `tsconfig.json`
 
 ---
 
@@ -18,13 +18,13 @@
 
 **Purpose**: Build the core game model, global state store, and reusable UI components needed by all user stories.
 
-- [ ] T006 [P] Create typed game entities in `src/state/types.ts`
-- [ ] T007 [P] Implement pure game rules and FIFO move queue logic in `src/logic/gameRules.ts`
-- [ ] T008 [P] Implement the Zustand game store in `src/state/gameStore.ts`
-- [ ] T009 Create board rendering components: `src/components/Board.tsx` and `src/components/Cell.tsx`
-- [ ] T010 Create UI support components: `src/components/GameStatus.tsx` and `src/components/AnimatedMarker.tsx`
-- [ ] T011 [P] Add unit tests for game rule functions in `tests/unit/gameRules.test.ts`
-- [ ] T012 [P] Add unit tests for game store actions in `tests/unit/gameStore.test.ts`
+- [x] T006 [P] Create typed game entities in `src/state/types.ts`
+- [x] T007 [P] Implement pure game rules and FIFO move queue logic in `src/logic/gameRules.ts`
+- [x] T008 [P] Implement the Zustand game store in `src/state/gameStore.ts`
+- [x] T009 Create board rendering components: `src/components/Board.tsx` and `src/components/Cell.tsx`
+- [x] T010 Create UI support components: `src/components/GameStatus.tsx` and `src/components/AnimatedMarker.tsx`
+- [x] T011 [P] Add unit tests for game rule functions in `tests/unit/gameRules.test.ts`
+- [x] T012 [P] Add unit tests for game store actions in `tests/unit/gameStore.test.ts`
 
 ---
 
@@ -34,11 +34,11 @@
 
 **Independent Test**: Verify that two players alternate turns, valid board cells accept marks, and placing a fourth mark removes the oldest active mark for that player.
 
-- [ ] T013 [US1] Implement cell click handling and move placement in `src/components/Board.tsx`
-- [ ] T014 [US1] Wire game store actions into `src/App.tsx` and `src/components/Board.tsx`
-- [ ] T015 [US1] Display current player turn and active move counts in `src/components/GameStatus.tsx`
-- [ ] T016 [US1] Prevent placement on occupied cells in `src/state/gameStore.ts`
-- [ ] T017 [P] [US1] Add integration tests for player move placement and FIFO removal in `tests/ui/App.test.tsx`
+- [x] T013 [US1] Implement cell click handling and move placement in `src/components/Board.tsx`
+- [x] T014 [US1] Wire game store actions into `src/App.tsx` and `src/components/Board.tsx`
+- [x] T015 [US1] Display current player turn and active move counts in `src/components/GameStatus.tsx`
+- [x] T016 [US1] Prevent placement on occupied cells in `src/state/gameStore.ts`
+- [x] T017 [P] [US1] Add integration tests for player move placement and FIFO removal in `tests/ui/App.test.tsx`
 
 ---
 
@@ -48,10 +48,10 @@
 
 **Independent Test**: Verify that the game ends immediately when a player forms a horizontal, vertical, or diagonal line of three active marks.
 
-- [ ] T018 [US2] Implement win detection logic in `src/logic/gameRules.ts`
-- [ ] T019 [US2] Update `src/state/gameStore.ts` to set `winner` and `isGameOver` when a win is detected
-- [ ] T020 [US2] Show winner and game over status in `src/components/GameStatus.tsx`
-- [ ] T021 [P] [US2] Add unit tests for win condition evaluation in `tests/unit/gameRules.test.ts`
+- [x] T018 [US2] Implement win detection logic in `src/logic/gameRules.ts`
+- [x] T019 [US2] Update `src/state/gameStore.ts` to set `winner` and `isGameOver` when a win is detected
+- [x] T020 [US2] Show winner and game over status in `src/components/GameStatus.tsx`
+- [x] T021 [P] [US2] Add unit tests for win condition evaluation in `tests/unit/gameRules.test.ts`
 
 ---
 
@@ -61,9 +61,9 @@
 
 **Independent Test**: Verify that clicking restart clears the board, resets state, and begins a new game.
 
-- [ ] T022 [US3] Implement `resetGame()` action in `src/state/gameStore.ts`
-- [ ] T023 [US3] Add a restart button and handler in `src/components/GameStatus.tsx`
-- [ ] T024 [P] [US3] Add integration test for restart behavior in `tests/ui/App.test.tsx`
+- [x] T022 [US3] Implement `resetGame()` action in `src/state/gameStore.ts`
+- [x] T023 [US3] Add a restart button and handler in `src/components/GameStatus.tsx`
+- [x] T024 [P] [US3] Add integration test for restart behavior in `tests/ui/App.test.tsx`
 
 ---
 
@@ -71,11 +71,11 @@
 
 **Purpose**: Add the removal animation, finalize deployment configuration, and clean up code.
 
-- [ ] T025 [P] Implement animated removal for the oldest mark in `src/components/AnimatedMarker.tsx` and `src/components/Cell.tsx`
-- [ ] T026 [P] Update `specs/001-sliding-tic-tac-toe/quickstart.md` with local and Vercel deployment instructions
-- [ ] T027 [P] Add or update root `README.md` to describe running the game locally and deploying to Vercel
-- [ ] T028 [ ] Refactor code for consistency and TypeScript strictness across `src/`
-- [ ] T029 [P] Run `npm run build` and verify local preview with `npm run preview`
+- [x] T025 [P] Implement animated removal for the oldest mark in `src/components/AnimatedMarker.tsx` and `src/components/Cell.tsx`
+- [x] T026 [P] Update `specs/001-sliding-tic-tac-toe/quickstart.md` with local and Vercel deployment instructions
+- [x] T027 [P] Add or update root `README.md` to describe running the game locally and deploying to Vercel
+- [x] T028 [P] Refactor code for consistency and TypeScript strictness across `src/`
+- [x] T029 [P] Run `npm run build` and verify local preview with `npm run preview`
 
 ---
 

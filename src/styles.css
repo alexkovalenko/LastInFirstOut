@@ -1,0 +1,167 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #071013;
+  color: #e9eff5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #122638 0%, #071013 45%, #020406 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  color: #9bb1c8;
+}
+
+.app-main {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  gap: 12px;
+  width: min(100%, 420px);
+  margin: 0 auto;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  position: relative;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.30);
+}
+
+.cell.disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.marker,
+.removal-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.marker {
+  color: #e9eff5;
+}
+
+.marker.x {
+  color: #80d9ff;
+}
+
+.marker.o {
+  color: #ffb46a;
+}
+
+.removal-marker {
+  color: rgba(233, 239, 245, 0.65);
+  animation: fade-remove 400ms ease forwards;
+}
+
+.status-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(16, 28, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.status-label {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #b7c5d6;
+}
+
+.status-value {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+}
+
+.button-row {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4d77ff 0%, #4386ff 100%);
+  color: white;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@keyframes fade-remove {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+}

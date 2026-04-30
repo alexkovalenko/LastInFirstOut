@@ -44,8 +44,32 @@ If you have the Vercel CLI installed, you can run:
 npx vercel dev
 ```
 
+## Environment Variables
+
+No runtime environment variables are required for this phase.
+
+## Project Structure
+
+```
+LastInFirstOut/
+├── src/
+│   ├── components/      # React UI components
+│   ├── logic/          # Pure game rules and logic
+│   ├── state/          # Zustand game store
+│   ├── App.tsx         # Root app component
+│   ├── main.tsx        # Entry point
+│   └── styles.css      # Global styles
+├── tests/              # Test files
+├── specs/              # Feature specifications and design docs
+├── dist/               # Production build output (generated)
+├── package.json        # Project dependencies
+├── tsconfig.json       # TypeScript configuration
+├── vite.config.ts      # Vite configuration
+└── index.html          # HTML entry template
+```
+
 ## Notes
 
-- No runtime environment variables are required for the first phase.
-- The application is a static SPA and does not require a backend for phase one.
-- Use Vite’s preview server to verify the production build before deploying.
+- The application is a static single-page app (SPA) with no backend dependency.
+- Zustand manages the game state; the store is initialized in `src/state/gameStore.ts`.
+- Game logic is isolated in `src/logic/gameRules.ts` for easy testing and reuse.
