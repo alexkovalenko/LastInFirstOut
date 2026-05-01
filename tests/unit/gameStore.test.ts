@@ -8,25 +8,46 @@ describe('gameStore', () => {
     getState().resetGame();
   });
 
-  it('starts with player X and an empty board', () => {
+  it('starts with player X and an empty board before the game begins', () => {
     expect(getState().currentPlayer).toBe('X');
+    expect(getState().gameStarted).toBe(false);
+    expect(getState().gameMode).toBe('two-player');
+    expect(getState().aiDifficulty).toBe('easy');
     expect(getState().board.every((cell) => cell === null)).toBe(true);
   });
 
-  it('places a move and toggles the current player', () => {
+  it('starts a vs-computer game and advances to computer turn after X move', () => {
+    getState().startGame('vs-computer', 'easy');
+    expect(getState().gameStarted).toBe(true);
+    expect(getState().currentPlayer).toBe('X');
+
     getState().placeMove(0);
     expect(getState().board[0]).toBe('X');
     expect(getState().currentPlayer).toBe('O');
   });
 
-  it('does not place a move on an occupied cell', () => {
+  it('does not allow the human player to place an O move in vs-computer mode', () => {
+    getState().startGame('vs-computer', 'easy');
     getState().placeMove(0);
-    getState().placeMove(0);
+    getState().placeMove(2);
+
+    expect(getState().board[2]).toBeNull();
     expect(getState().currentPlayer).toBe('O');
-    expect(getState().board[0]).toBe('X');
+  });
+
+  it('resets game mode, difficulty, and AI thinking state when restarting', () => {
+    getState().startGame('vs-computer', 'medium');
+    getState().placeMove(0);
+    getState().resetGame();
+
+    expect(getState().gameStarted).toBe(false);
+    expect(getState().gameMode).toBe('two-player');
+    expect(getState().aiDifficulty).toBe('easy');
+    expect(getState().isComputerThinking).toBe(false);
   });
 
   it('removes the oldest move when placing a fourth mark', () => {
+    getState().startGame('two-player', 'easy');
     getState().placeMove(0);
     getState().placeMove(1); // O
     getState().placeMove(2); // X
