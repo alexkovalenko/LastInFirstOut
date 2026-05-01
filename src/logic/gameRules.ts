@@ -23,6 +23,12 @@ export function createMove(player: PlayerId, cellIndex: number, queuePosition = 
   return { player, cellIndex, queuePosition };
 }
 
+export function getEmptyCellIndices(board: Cell[]): number[] {
+  return board
+    .map((cell, index) => (cell === null ? index : -1))
+    .filter((index) => index >= 0);
+}
+
 export function isCellOccupied(board: Cell[], index: number): boolean {
   return board[index] !== null;
 }
